@@ -18,6 +18,7 @@
     "inngest": "^3.44.3",
     "mongoose": "^8.19.1",
     "nodemon": "^3.1.10",
-    "prepverse-iq": "file:.."
+    "prepverse-iq": "file:..",
+    "stream-chat": "^9.24.0"
   }
 }
