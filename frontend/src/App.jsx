@@ -1,22 +1,24 @@
-
-
-import './App.css'
-import { SignedIn, SignedOut, SignInButton, SignOutButton, UserButton } from '@clerk/clerk-react'
+import { Navigate, Route, Routes } from 'react-router'
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import ProblemsPage from './pages/ProblemsPage'
+import { useUser } from '@clerk/clerk-react'
+import { Toaster } from "react-hot-toast"
 
 function App() {
-
+  const { isSignedIn } = useUser()
 
   return (
     <>
-      <h1>Welcome to the app</h1>
-      <SignedOut>
-        <SignInButton mode="modal" />
-      </SignedOut>
-      <SignedIn>
-        <SignOutButton />
-      </SignedIn>
+      <Routes>
 
-      <UserButton />
+
+        <Route path='/' element={<HomePage />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='/problems' element={isSignedIn ? <ProblemsPage /> : <Navigate to={'/'} />} />
+
+      </Routes>
+      <Toaster toastOptions={{ duration: 3000 }} />
     </>
   )
 }
