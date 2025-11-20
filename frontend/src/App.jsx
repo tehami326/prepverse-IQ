@@ -8,8 +8,11 @@ import { Toaster } from "react-hot-toast"
 import ProblemPage from './pages/ProblemPage'
 
 function App() {
+
   const { isSignedIn, isLoaded } = useUser()
   if (!isLoaded) return null;
+
+
   return (
     <>
       <Routes>
